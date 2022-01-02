@@ -1,0 +1,26 @@
+Intro to REST APIS 
+
+GETTING STARTED 
+
+	- API KEY 
+	- MAKING THE FIRST API CALL! 
+	- ENDPOINTS AND RESOURCES
+
+ACCESSING AN API, GETTING THE DATA IT CONTAINS 
+(MAKING A REQUEST, FETCHING A RESPONSE) 
+
+ANATOMY OF AN API (WHERE THE API KEY GOES, PATH PARAMETERS AND QUERY PARAMETERS, WITH THE ? MARK) 
+
+AVAILABLE API METHODS I (GET AND GET ALL)
+
+AVAILABLE API METHODS II (POST, UPDATE AND DELETE) 
+
+TOOLS FOR MAKING API CALLS 
+
+
+
+
+
+They are basically URLs loaded with information that gets displayed when the URL is accessed. Just as in the case of website, where different URLs contain different pages of the website, in the case of API(s), different URLs are loaded with different types or sets of information which the developer might be search for.
+
+They are basically URLs loaded with information that gets displayed when the URL is accessed.Just like websites where different URLs direct you to different pages, in the case of APIs, different URLs come loaded with different types or sets of information that the developer might search for.

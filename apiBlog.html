@@ -1,0 +1,243 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+    <style>
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        h3 {
+            margin-top: 30px;
+            font-weight: 500;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        li {
+            margin-left: 30px;
+            margin-bottom: 10px;
+        }
+
+        .intro {
+            height: auto;
+        }
+
+        .special {
+            margin-left: 20px;
+        }
+
+        .header1 {
+            text-align: center;
+            font-weight: 500;
+            padding-top: 20px;
+        }
+
+        .header2 {
+            font-weight: 500;
+            font-size: 20px;
+            margin-top: 30px;
+            margin-bottom: 20px;
+        }
+
+        .para {
+            line-height: 30px;
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+
+        .note {
+            margin-top: 15px;
+            line-height: 30px;
+        }
+
+        * {
+            font-family: 'Noto Sans';
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+
+        .container {
+            width: 1510px;
+            height: 600vh;
+            margin-top: 30px;
+            border: 1px solid black;
+        }
+
+        .left-pane {
+            border: 1px solid black;
+            width: 25%;
+            position: fixed;
+            height: 600vh;
+            display: inline;
+        }
+
+        .right-pane {
+            border: 0px solid black;
+            width: 75%;
+            display: inline-block;
+            margin-left: 380px;
+        }
+
+        .left-pane-wrapper {
+            border: 0px solid black;
+            padding: 20px;
+        }
+
+            .left-pane-wrapper p {
+                margin-bottom: 10px;
+                cursor: pointer;
+            }
+
+            .left-pane-wrapper a {
+                text-decoration: none;
+                color: black;
+            }
+
+        @media only screen and (max-width:480px) {
+            .container {
+                width: 480px;
+            }
+
+            .left-pane{
+                display:none;
+                width:0%;
+            }
+
+            .right-pane{
+                width:100%;
+                margin-left:0px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1 class="header1" id="#int">API Writing for Technical Writers</h1>
+    <div class="container">
+        <div class="left-pane">
+            <div class="left-pane-wrapper">
+                <p><a href="#int">Intro to APIs</a></p>
+                <p><a href="#case">APIs - A Case Study</a></p>
+                <p><a href="#started">Getting Started - Making a Request, Getting a Response</a></p>
+
+                <p><a href="#parts">Anatomy of an API</a></p>
+                <p class="special">Base URL</p>
+                <p class="special">API Key</p>
+                <p class="special">Resources</p>
+                <p class="special">Path Parameter</p>
+                <p class="special">Query Parameter</p>
+                <p><a href="#methods">REST API Methods Overview</a></p>
+                <p>Available API Methods I</p>
+                <p>Introducing POSTMAN</p>
+                <p>Available API Methods II</p>
+                <p>That's A Wrap!</p>
+            </div>
+        </div>
+        <div class="right-pane">
+            <section class="intro" id="int">
+                <h2 class="header2"><b>What Are APIs?</b></h2>
+                <p class="para">Application Programming Interface(API) allow applications to connect with other 3rd party applications and utilize their services. For example, Uber developer making use of Google Maps API to allow users to track their cabs.</p>
+                <h2 class="header2">What is REST?</h2>
+                <p class="para">There are many methods available for creating these APIs. The most popular one which is universally accepted is known as REST(Representational State Transfer). Most web applications make use of REST APIs because of the benefits they offer. Therefore it is important for technical writers to understand how REST APIs work if they are to document web application based APIs successfully.</p>
+                <p class="note"><b>Note:</b> Basic knowledge of REST is enough. You don't have to know too much about the technicalities involved.</p>
+
+                <h2 class="header2">What Do APIs Do? How Do They Look?</h2>
+                <p class="para">They display information that can be used by developers. For example uber developer will make use of Geolocation API to get the 'near by cabs' information and display the same to uber user who is trying to book a cab.</p>
+                <p class="para">They are basically URLs loaded with information that gets displayed when the URL is accessed. Just like websites where different URLs direct you to different pages, in the case of APIs, different URLs come loaded with different types or sets of information that the developer might search for. </p>
+                <p class="para">A sample url might look like this: <a href="#">https://api.twitter.com/1.1/</a>. You might have guessed that it belongs to twitter. You might have also guessed that the twitter apis are stored away in subdomain of twitter website.</p>
+                <p class="para">But a url alone is not sufficient to get started with APIs. You need what is known as an API key.</p>
+                <p class="note"><b>Note</b> Since APIs deal with sensitive information, they are protected with an API key. The developers looking to subscribe to an API service have to apply for and get the API key first in order to access the service.</p>
+            </section>
+            <section class="case-study" id="case">
+                <h2 class="header2"><b>APIs - A Case Study</b></h2>
+                <p class="para">Travel sites like trip advisor serve as good examples of 3rd party API consumers. The information they show on their websites that help you schedule holidays (like available flights, hotels, listing of popular places for sightseeing etc..) are all gathered from several other applications (or websites). These travel websites make money by making the lives of users like you and me (by collating and producing all the information on one screen) and in turn have to pay for the API services that they are subscribe to.</p>
+            </section>
+            <section class="getting-started" id="started">
+                <h2 class="header2"><b>Getting Started - Making a Request, Getting a Response</b></h2>
+                <p class="para">Let's first explore a free public api (that does not even need an api key) to understand how a API can be accessed and the response it spits out.</p>
+                <p class="para">All you have to do is click this url: <a href="https://randomuser.me/api">https://randomuser.me/api</a> and the response gets displayed on your browser.</p>
+                <p class="note"><b>Note</b>: Before accessing the above url, ensure you have <a href="https://chrome.google.com/webstore/detail/jsonvue/chklaanhfefbnpoihckbnefhakgolnmc">this</a> browser extension installed. The extension 'prettyfies' the response.</p>
+                <h3>What is Random User API? What is it reponsible for?</h3>
+                <p class="para">It's just a mock API that serves up random user data, used by designers to quickly wire up a UI without really having to setup a dedicated backend. And it also perfectly suits our purpose of learning the API basics.</p>
+                <h3>How to Make Sense of the Response?</h3>
+                <p class="para">Well, that takes some getting used to. The more you view and analyze, the better. But the good news is you will have a team of developers to help you with this. But the best way to start off is by analyzing easily structured data like the one thrown out by the random user database.</p>
+                <p class="para">Now if you look at the response closely, you'll realize that it simply gives you the details of a user record like the name, phone number, email, address etc. At a very basic level, this is very much equivalent to a uber customer viewing his/her driver's details. Only difference is, since we don't yet have a frontend, we are being presented with the raw data. </p>
+                <p class="para">There you go. We just made an API request and got the response back! </p>
+                <p class="note"><b>Note</b> Everytime you reload the browser, you will get a new random user's details. So take some time and - reload, observe and learn.</p>
+            </section>
+
+            <section class="anatomy" id="parts">
+                <h2 class="header2"><b>Anatomy of an API</b></h2>
+                <p class="para">An official looks like this: <a href="https://api.themoviedb.org/3/movie/550?api_key=6c7d27503ce09c584ac2ee601fd22e1b&language=en">https://api.themoviedb.org/3/movie/550?api_key=6c7d27503ce09c584ac2ee601fd22e1b&language=en</a></p>
+                <p class="note"><b>Note</b> Clicking the above url may not give back a response to you. So it's better to get your own API key by visting: <a href="https://www.themoviedb.org/documentation/api">https://www.themoviedb.org/documentation/api</a></p>
+                <br />
+                <p class="para">Typically, API URLs can be split into 5 sections as follows:</p>
+                
+                <h3>1. Base URL</h3>
+                <p class="para">Base url is that part of the API url that remains the same for all kinds of API calls. It usually refers to the domain which houses all of the application's APIs. The general practice among web applications is to reserve a separate subdomain for hosting their APIs. If you observe the above url, you will realize that it (https://api.themoviedb.org/) is basically a subdomain of (https://www.themoviedb.org/) TMDB web application.</p>
+                <p class="para" style="margin-left:30px;"><a href="#">https://api.themoviedb.org/3/</a></p>
+                <p class="note"><b>Note</b> If you see a number following the base url, then it refers to API version number. So in our case, it's version 3.</p>
+                <h3>2. API Key</h3>
+                <p class="para">As you can see, the above api requires an api key for it to function. API keys are usually long unique string of characters that cannot be replicated that easily. They ensure only those users (developers) who have subscribed to the API service can access the api, and not anyone else.. </p>
+                <p class="para" style="margin-left:30px;"><a href="#">api_key=6c7d27503ce09c584ac2ee601fd22e1b</a></p>
+                <h3>3. Resources</h3>
+                <p class="para">Resources (or resource) refers to the data you are pulling out using the API. It's usually a contextual name given to the data being pulled out from the database, depending on its role within the application (that is offering APIs as a service). In the case of above url, since TMDB provides movie related information, their developers have aptly named the resource as movie.</p>
+                <p class="para" style="margin-left:30px;"><a href="#">/movie</a></p>
+                <h3>4. Path Parameter</h3>
+                <p class="para">To understand this, you have to understand the structure of the URL. Every URL will contain a '?' mark. Values that come after the base url but before the '?' mark are known as path parameters. They are known as path parameters because these values decide the path your API request will take in order to fetch the required data. Path parameters are usually given numerical values that identify a particular resource.   </p>
+                <p class="para">Every resource will have a unique id associated with it. And using these path parameters, you can pass those ids to get the desired resource. In the above url, it's happens to be movie with the id 550 that we are trying to fetch . </p>
+                <p class="para" style="margin-left:30px;"><a href="#">/550</a></p>
+                <h3>5. Query Parameter</h3>
+                <p class="para">They key:pair values that come after the '?' mark are known as query parameters, because they help you 'query' or 'filter the data' being pulled out based on 'some criterion'. After having pulled out the resource, you can decide what you wish to see from the resource using these query parameters.</p>
+                <p class="para">In the above url, the query parameter used is key:value pair 'language:en' that helps you filter out only English language movies from the list of movies that we got access to from making the API call.</p>
+                <p class="para" style="margin-left:30px;"><a href="#">&language=en</a></p>
+                <p class="note"><b>Note</b> Multiple query parameters can be used at the same time. Each query parameter has to be separated by '&' </p>
+                <p class="note"><b>Note</b> The above url may or may not give a response to you. So it's better to get your own API key by visting:</p>
+            </section>
+            <section class="api-methods" id="methods">
+                <h2 class="header2"><b>REST API Methods</b></h2>
+                <p class="para">REST APIs support different types of API operations. But the most popular ones are: POST, GET, PATCH and DELETE. </p>
+                <p class="para">They basically help you perform CRUD (Create, Read, Update and Delete operations on data)  operations via APIs.</p>
+                <p class="para">POST corresponds to create, GET to read, PATCH to update and DELETE to delete.</p>
+                <p class="para">Let's see these operations in action.</p>
+            </section>
+
+            <section class="api-methods-1">
+                <h2 class="header2"><b>Available API Methods I</b></h2>
+                <h3>GET Operation</h3><br/>
+                <p class="para">We already made an API call and got the response back by using the below url</p>
+                <p class="para"><a href="https://api.themoviedb.org/3/movie/550?api_key=6c7d27503ce09c584ac2ee601fd22e1b&language=en">https://api.themoviedb.org/3/movie/550?api_key=6c7d27503ce09c584ac2ee601fd22e1b&language=en</a></p>
+                <p class="para">What we did was basically a GET operation. </p>
+                <p class="para">What GET operation does is it queries the database and gets back a specific instance of a resource. Which in our case is the movie with id=550.</p>
+            
+                <h3>GET ALL Operation</h3><br/>
+                <p class="para">The second type of GET operation is known as GET ALL. What this does is it gets back all the instances of a specific resource. Example: let's say the developer wants a list of all the 'trending' movies, then he or she can fetch them all by making use of GET ALL operation as follows:</p>
+                <p class="para"><a href="https://api.themoviedb.org/3/movie/popular?api_key=6c7d27503ce09c584ac2ee601fd22e1b&language=en-US">https://api.themoviedb.org/3/movie/popular?api_key=6c7d27503ce09c584ac2ee601fd22e1b&language=en-US</a></p>
+                <p class="note"><b>Note</b> Notice how we no longer pass id but 'popular' path parameter for fetching all the 'trending' movies segregated under 'popular' category.</p>
+                <p class="note"><b>Note</b> TMDB APIs support only GET operations. They do not allow users to POST data to their database. That means PATCH and DELETE too are not possible. So to explain POST, PATCH and DELETE operations, I'll be making use of my own locally hosted database that serves up mock flight information API data to be consumed by travel website (like tripadvisor) developers. </p>
+                <br/>
+                <p class="para">To reiterate what you have learnt, in the above url:</p>
+                <ul>
+                    <li>https://api.themoviedb.org/3 is the base url</li>
+                    <li>/movie/popular are the path parameters</li>
+                    <li>api_key=6c7d27503ce09c584ac2ee601fd22e1b is the api key</li>
+                    <li>&language=en-US is the query parameter</li>
+                </ul>
+            </section>
+            <section class="postman">
+                <h2 class="header2"><b>Introducing POSTMAN - An API Testing Tool</b></h2>
+                <p class="para">To perform a POST operation (or to post data to the server) we need a form that takes in user inputs. But in the case of handing over apis as a service to 3rd party applications, the need for developers to build a dedicated UI does not exist. So instead of forms, API endpoint testing tools like the POSTMAN are used for submitting data (or posting data).</p>
+                <p class="para">The video below explains how you can make use of POSTMAN to perform POST operation.</p>
+                <p>to be continued...</p>
+            </section>
+            <section class="api-methods-1"></section>
+        </div>
+    </div>
+</body>
+</html>

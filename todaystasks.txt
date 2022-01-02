@@ -1,0 +1,5 @@
+backend crud
+simple api project
+simple javascript practice 
+2 zoho writer blogs 
+publish the tech blog (4 blogs with videos) (make a copy before publishing, so that 3 more remaining files can be added) 
